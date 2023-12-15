@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCPbVvBnHJxKXP3UqeDI6B7PCq0TWIQRgs',
@@ -9,5 +11,5 @@ const firebaseConfig = {
   appId: '1:102649970067:web:bad5c8c43a39a152d6bc66',
 };
 
-// eslint-disable-next-line no-unused-vars
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
