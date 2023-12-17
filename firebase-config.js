@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
