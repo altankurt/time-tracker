@@ -7,7 +7,21 @@ function ProtectedRoute({ children }) {
   const [user, setUser] = useState(null);
   const auth = getAuth();
 
+  useEffect(() => {
+    const logout = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+      } else {
+        navigate('/login');
+      }
+    });
+
+    return () => logout();
+  }, [navigate, auth]);
+
   return children;
 }
 
 export default ProtectedRoute;
+
+
