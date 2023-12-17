@@ -49,7 +49,14 @@ const LoginForm = () => {
   };
 
   return (
-    <div>hello</div>
+    <main className="main-layout">
+      <section className="container">
+        <header className="text-center">
+          <h1 className="header-title">TimeTune</h1>
+          <p className="header-subtitle">Log in and get tracking!</p>
+        </header>
+      </section>
+    </main>
   );
 };
 

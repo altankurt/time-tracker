@@ -3,3 +3,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .main-layout {
+    @apply flex items-center justify-center min-h-screen bg-neutral
+  }
+
+  .form-container {
+    @apply w-full max-w-xs mx-auto p-8 rounded-xl shadow-lg bg-light border border-secondary sm:max-w-sm lg:max-w-md xl:max-w-lg
+  }
+
+  .header-title {
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-2
+  }
+
+  .header-subtitle {
+    @apply mb-12 sm:text-lg md:text-xl text-dark
+  }
+}
