@@ -23,3 +23,19 @@ const FormSchema = z.object({
   path: ["confirmPassword"],
   message: "Passwords do not match!",
 });
+
+const Signup = () => {
+  const navigate = useNavigate();
+  const { toast } = useToast();
+  const form = useForm({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+  });
+};
+
+export default Signup;
