@@ -22,6 +22,7 @@ const FormSchema = z.object({
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const form = useForm({
     resolver: zodResolver(FormSchema),
     defaultValues: {
