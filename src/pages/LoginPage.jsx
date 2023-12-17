@@ -30,7 +30,22 @@ const LoginForm = () => {
     },
   });
 
-  const onSubmit = async (values) => {};
+  const onSubmit = async (values) => {
+    try {
+      const auth = getAuth();
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        values.email,
+        values.password,
+      );
+      navigate("/index");
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: error.message,
+      });
+    }
+  };
 
   return (
     <div>hello</div>
