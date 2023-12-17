@@ -50,11 +50,66 @@ const LoginForm = () => {
 
   return (
     <main className="main-layout">
-      <section className="container">
+      <section className="form-container">
         <header className="text-center">
           <h1 className="header-title">TimeTune</h1>
           <p className="header-subtitle">Log in and get tracking!</p>
         </header>
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="form-submit"
+          >
+              {/* Email Field */}
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Your email</FormLabel>
+                    <FormControl>
+                      <Input className="rounded-md" placeholder="mail@example.com" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              {/* Password Field */}
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Password</FormLabel>
+                    <FormControl>
+                      <Input className="rounded-md" 
+                        placeholder="Enter your password"
+                        type="password"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            <div className="text-right">
+              <Link to="/reset-password" className="form-link text-sm">
+                Forgot password?
+              </Link>
+            </div>
+            <Button className="form-button text-base bg-secondary hover:bg-primary" type="submit">
+              Login
+            </Button>
+          
+            <p className="form-small-text">
+              If you don&apos;t have an account, please{" "}
+              <Link className="form-link" to="/register">
+                Sign up
+              </Link>
+              <span>.</span>
+            </p>
+          </form>
+        </Form>
       </section>
     </main>
   );
