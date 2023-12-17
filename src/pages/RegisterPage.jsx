@@ -36,6 +36,32 @@ const Signup = () => {
       confirmPassword: "",
     },
   });
+
+  const onSubmit = async (values) => {
+    try {
+      const auth = getAuth();
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        values.email,
+        values.password
+      );
+      
+      navigate("/login");
+      toast({
+        title: "Success",
+        description: "Account created successfully! Welcome aboard!",
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: error.message,
+      });
+    }
+  };
+
+  return (
+    <div>hi</div>
+  );
 };
 
 export default Signup;
