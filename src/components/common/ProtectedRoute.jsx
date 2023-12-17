@@ -19,6 +19,10 @@ function ProtectedRoute({ children }) {
     return () => logout();
   }, [navigate, auth]);
 
+  if (!user) {
+    return <div>Looading...</div>;
+  }
+
   return children;
 }
 
