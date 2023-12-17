@@ -15,7 +15,7 @@ export default function App() {
       setCurrentUser(user);
     });
 
-    return logout; // Oturum izleme bittiğinde unsubscribe ol
+    return logout;
   }, [auth]);
 
   return (
