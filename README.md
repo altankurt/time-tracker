@@ -1,5 +1,6 @@
 # Time Tracker Project
 
+![time-tracker-gif](https://github.com/altankurt/time-tracker/raw/development/public/time-tracker.gif)
 
 ## Table of Contents
 
