@@ -1,5 +1,6 @@
 # Time Tracker Project
-[![TimeTrackerGif](https://i.hizliresim.com/72ti5xl.gif)](https://hizliresim.com/72ti5xl)
+
+![time-tracker-gif](https://github.com/altankurt/time-tracker/raw/development/public/time-tracker.gif)
 
 ## Table of Contents
 

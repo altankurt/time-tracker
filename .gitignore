@@ -23,5 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
+
+.gif
+
 # Firebase
 firebase-config.js
