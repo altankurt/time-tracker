@@ -165,7 +165,7 @@ const IndexPage = () => {
               {logs.map((log, index) => (
                 <tr key={index} className="border border-gray-200">
                   <td className="px-4 py-2">{log.description}</td>
-                  <td className="px-4 py-2">{log.time}</td>
+                  <td className="px-4 py-2">{formatTime(log.time)}</td>
                   <td className="px-4 py-2">{formatDate(log.date)}</td>
                   <td className='px-4 py-2'>
                     <button onClick={() => handleDelete(log.date)} className="bg-red-500 text-white px-4 py-2 rounded">Delete</button>
