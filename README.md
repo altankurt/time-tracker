@@ -43,6 +43,17 @@ The "Time Tracker" project is a web application designed for time management and
 ### Known Issues and Limitations
 
 The following are known issues and planned enhancements for the "Time Tracker" project:
+- **Separation of Concerns**
+  - Plan to refactor code by breaking down the logic and UI in components, and creating separate custom hooks for Login, Register, and time-related behaviors on the page.
+
+- **Atomizing UI Elements**
+  - Aiming to further atomize UI elements into more granular components for better reusability and maintainability.
+
+- **Utility Functions Management**
+  - Intend to move functions like `formatTime` into the `utils` folder and call them from there to improve code organization and readability.
+
+- **Asset Management**
+  - Planning to manage all assets centrally within the `public` folder for consistency and easier maintenance.
 
 - **Toast Structure for Registered Users**
   - Toast notifications need to be operational before routing for the registered user to provide better user feedback.
@@ -64,6 +75,9 @@ The following are known issues and planned enhancements for the "Time Tracker" p
 
 - **Index Page Design Overhaul**
   - A comprehensive redesign of the Index page is planned, including the consolidation of styles into global CSS for a cleaner code structure.
+
+- **Central Loading GIF**
+  - A GIF for loading is planned to be added, which will appear in the center of the page to enhance the user experience during loading times.
 
 ## Installation
 
