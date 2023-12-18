@@ -1,4 +1,5 @@
 # Time Tracker Project
+[![TimeTrackerGif](https://i.hizliresim.com/72ti5xl.gif)](https://hizliresim.com/72ti5xl)
 
 ## Table of Contents
 
