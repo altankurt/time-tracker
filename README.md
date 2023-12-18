@@ -105,36 +105,49 @@ npm run build
 ```
 
 ### Project Structure
-
-- `public/`
-  - `vite.svg/`
-- `src/`
-  - `assets/`
-  - `components/`
-    - `common/`
-    - `ui/`
-  - `lib/`
-  - `pages/`
-      - `IndexPage.jsx/`
-      - `LoginPage.jsx/`
-      - `RegisterPage.jsx/`
-  - `App.jsx`
-  - `index.css`
-  - `main.jsx`
-- `.eslintrc.cjs`
-- `.gitignore`
-- `LICENSE`
-- `README.md`
-- `components.json`
-- `firebase-config.js`
-- `index.html`
-- `jsconfig.json`
-- `package-lock.json`
-- `package.json`
-- `postcss.config.js`
-- `prettier.config.js`
-- `tailwind.config.js`
-- `vite.config.js`
+```bash
+time-tracker/
+  ├── public/                           # Static assets and icons.
+  │   └── vite.svg                      # Example static SVG file.
+  ├── src/
+  │   ├── assets/                       # Static files (e.g., SVGs).
+  │   │   └── react.svg                 # React logo SVG.
+  │   ├── components/
+  │   │   ├── common/                   # Common React components for general use.
+  │   │   │   ├── ProtectedRoute.jsx    # Protected route component for authorization.
+  │   │   │   └── ToastContainer.jsx    # Container component for toast notifications.
+  │   │   └── ui/                       # UI components.
+  │   │       ├── button.jsx            # Button component.
+  │   │       ├── form.jsx              # Form component.
+  │   │       ├── input.jsx             # Input component.
+  │   │       ├── label.jsx             # Label component.
+  │   │       ├── table.jsx             # Table component.
+  │   │       ├── toast.jsx             # Toast notification component.
+  │   │       ├── toaster.jsx           # Toaster component.
+  │   │       └── use-toast.jsx         # Toast hook.
+  │   ├── lib/
+  │   │   └── utils.js                  # Utility functions and libraries.
+  │   ├── pages/
+  │   │   ├── IndexPage.jsx             # React component for the main page.
+  │   │   ├── LoginPage.jsx             # React component for the login page.
+  │   │   └── RegisterPage.jsx          # React component for the registration page.
+  │   ├── App.jsx                       # Main React component for the application.
+  │   ├── index.css                     # Global CSS file.
+  │   └── main.jsx                      # Entry point for the React application.
+  ├── .eslintrc.cjs                     # ESLint configuration file.
+  ├── .gitignore                        # List of files to be ignored by Git.
+  ├── README.md                         # Markdown file containing information about the project.
+  ├── components.json                   # JSON file for component configuration.
+  ├── firebase-config.js                # Firebase configuration file.
+  ├── index.html                        # HTML entry file.
+  ├── jsconfig.json                     # JavaScript configuration file.
+  ├── package-lock.json                 # Project's dependencies lock file.
+  ├── package.json                      # JSON file containing project's dependencies and scripts.
+  ├── postcss.config.js                 # PostCSS configuration file.
+  ├── prettier.config.js                # Prettier code formatting configuration file.
+  ├── tailwind.config.js                # Tailwind CSS configuration file.
+  └── vite.config.js                    # Vite configuration file.
+```
 
 ## License
 
