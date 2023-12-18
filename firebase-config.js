@@ -1,6 +1,6 @@
-/* eslint-disable no-unused-vars */
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCPbVvBnHJxKXP3UqeDI6B7PCq0TWIQRgs',
@@ -13,3 +13,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
+
+export { auth, db };
