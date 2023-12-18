@@ -25,6 +25,17 @@ const IndexPage = () => {
 
     return () => clearInterval(interval);
   }, [timerOn]);
+
+  const auth = getAuth();
+
+  const handleLogout = () => {
+    signOut(auth).then(() => {
+      navigate("/login");
+    }).catch((error) => {
+      console.error("Logout Error:", error);
+    });
+  };
+
 };
 
 export default IndexPage;
