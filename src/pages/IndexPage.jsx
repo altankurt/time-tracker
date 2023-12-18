@@ -103,12 +103,10 @@ const IndexPage = () => {
     const logsCollection = await getDocs(collection(db, "time_log"));
     logsCollection.forEach(async (doc) => {
       if (doc.data().date?.seconds === date?.seconds) {
-        deleteDoc(doc.ref);
+        await deleteDoc(doc.ref);
+        setLogs(currentLogs => currentLogs.filter(log => log.date?.seconds !== date?.seconds));
       }
     });
-    setTimeout(() => {
-      fetchLogs();
-    }, 1000);
   };
   
   useEffect(() => {
