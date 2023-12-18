@@ -19,7 +19,7 @@ function genId() {
 
 const toastTimeouts = new Map();
 
-const addToRemoveQueue = (toastId) => {
+const addToRemoveQueue = (toastId, dispatch) => { 
   if (toastTimeouts.has(toastId)) {
     return;
   }
@@ -52,30 +52,30 @@ export const reducer = (state, action) => {
       };
 
     case 'DISMISS_TOAST': {
-      const { toastId } = action;
-
-      // ! Side effects ! - This could be extracted into a dismissToast() action,
-      // but I'll keep it here for simplicity
-      if (toastId) {
-        addToRemoveQueue(toastId);
-      } else {
-        state.toasts.forEach((toast) => {
-          addToRemoveQueue(toast.id);
-        });
+        const { toastId } = action;
+      
+        if (toastId) {
+          addToRemoveQueue(toastId, dispatch); // dispatch parametresini geç
+        } else {
+          state.toasts.forEach((toast) => {
+            addToRemoveQueue(toast.id, dispatch); // dispatch parametresini geç
+          });
+        }
+      
+        return {
+          ...state,
+          toasts: state.toasts.map((t) =>
+            t.id === toastId || toastId === undefined
+              ? {
+                  ...t,
+                  open: false,
+                }
+              : t
+          ),
+        };
       }
+      
 
-      return {
-        ...state,
-        toasts: state.toasts.map((t) =>
-          t.id === toastId || toastId === undefined
-            ? {
-                ...t,
-                open: false,
-              }
-            : t
-        ),
-      };
-    }
     case 'REMOVE_TOAST':
       if (action.toastId === undefined) {
         return {
