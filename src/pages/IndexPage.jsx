@@ -118,57 +118,57 @@ const IndexPage = () => {
   return (
     <div className="container mx-auto p-4">
       <nav className="flex justify-between items-center p-4">
-        <h1 className="text-xl font-bold">TimeTune</h1>
-        <button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 rounded">Logout</button>
+        <h1 className="header-title">TimeTune</h1>
+        <button onClick={handleLogout} className="bg-secondary hover:bg-primary text-light px-4 py-2 font-medium rounded-md">Logout</button>
       </nav>
 
-      <div className="flex flex-col items-center space-y-4">
-      <div className="text-2xl font-mono">
+      <div className="flex flex-col text-dark-900 items-center space-y-4">
+      <div className="text-2xl">
           {("0" + Math.floor((time / 60000) % 60)).slice(-2)}:
           {("0" + Math.floor((time / 1000) % 60)).slice(-2)}:
           {("0" + ((time / 10) % 100)).slice(-2)}
       </div>
         <input
           type="text"
-          className="border border-gray-300 p-2"
+          className="border border-light-900 p-2"
           placeholder="What are you working on?"
           value={taskDescription}
           onChange={(e) => setTaskDescription(e.target.value)}
         />
         {!timerOn && time === 0 ? (
-          <button onClick={() => setTimerOn(true)} className="bg-green-500 text-white px-4 py-2 rounded">
+          <button onClick={() => setTimerOn(true)} className="bg-green-500 hover:bg-green-600 text-light px-4 py-2 font-medium rounded">
             Start
           </button>
         ) : (
           <div className="flex space-x-2">
-            <button onClick={() => setTimerOn(!timerOn)} className="bg-yellow-500 text-white px-4 py-2 rounded">
+            <button onClick={() => setTimerOn(!timerOn)} className="bg-yellow-500 hover:bg-yellow-600 text-light px-4 py-2 font-medium rounded">
               {timerOn ? "Pause" : "Continue"}
             </button>
-            <button onClick={handleStop} className="bg-red-500 text-white px-4 py-2 rounded">Stop</button>
+            <button onClick={handleStop} className="bg-secondary hover:bg-primary text-light px-4 py-2 font-medium rounded-md">Stop</button>
           </div>
         )}
       </div>
   
-      <div className="mt-8">
-        <h2 className="text-lg font-bold">Logs</h2>
+      <div className="mt-8 text-dark-900">
+        <h2 className="text-lg font-bold">Tracked Activities</h2>
         <div className="overflow-auto">
-          <table className="w-full text-center border-collapse border border-gray-200">
+          <table className="w-full text-center border-collapse border border-light-900">
             <thead>
-              <tr className="bg-gray-100">
-                <th className="border border-gray-200 px-4 py-2">Description</th>
-                <th className="border border-gray-200 px-4 py-2">Time</th>
-                <th className="border border-gray-200 px-4 py-2">Date</th>
+              <tr className="bg-light">
+                <th className="border border-light-900 px-4 py-2">Description</th>
+                <th className="border border-light-900 px-4 py-2">Time</th>
+                <th className="border border-light-900 px-4 py-2">Date</th>
                 <th></th> 
               </tr>
             </thead>
             <tbody>
               {logs.map((log, index) => (
-                <tr key={index} className="border border-gray-200">
+                <tr key={index} className="border border-light">
                   <td className="px-4 py-2">{log.description}</td>
                   <td className="px-4 py-2">{formatTime(log.time)}</td>
                   <td className="px-4 py-2">{formatDate(log.date)}</td>
                   <td className='px-4 py-2'>
-                    <button onClick={() => handleDelete(log.date)} className="bg-red-500 text-white px-4 py-2 rounded">Delete</button>
+                    <button onClick={() => handleDelete(log.date)} className="bg-secondary hover:bg-primary text-light px-4 py-2 font-medium rounded-md">Delete</button>
                   </td>
                 </tr>
               ))}
