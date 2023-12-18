@@ -36,6 +36,22 @@ const IndexPage = () => {
     });
   };
 
+  const collectionRef = collection(db, "time_log");
+  const fetchLogs = async () => {
+    const logsCollection = await getDocs(query(collectionRef, where("author", "==", auth.currentUser.uid)));
+    logsCollection.forEach((doc) => {
+      setLogs(prevLogs => {
+        return [...prevLogs, doc.data()].reduce((acc, current) => {
+          const x = acc.find(item => item.date?.seconds === current.date?.seconds);
+            if (!x) {
+            return acc.concat([current]);
+          } else {
+            return acc;
+          }
+        }, []).sort((a,b)=> b.date - a.date)
+      });
+    });
+  }
 };
 
 export default IndexPage;
