@@ -55,10 +55,10 @@ export const reducer = (state, action) => {
         const { toastId } = action;
       
         if (toastId) {
-          addToRemoveQueue(toastId, dispatch); // dispatch parametresini geç
+          addToRemoveQueue(toastId, dispatch); 
         } else {
           state.toasts.forEach((toast) => {
-            addToRemoveQueue(toast.id, dispatch); // dispatch parametresini geç
+            addToRemoveQueue(toast.id, dispatch); 
           });
         }
       
