@@ -52,6 +52,26 @@ const IndexPage = () => {
       });
     });
   }
+
+  const handleStop = async () => {
+    setTimerOn(false);
+
+    if (time >= 1000) {
+      const description = taskDescription || 'Current Task';
+     
+      try {
+        await addDoc(collection(db, 'time_log'), { author : auth.currentUser.uid, description, time, date: new Date() });
+        await fetchLogs();
+        
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+      await fetchLogs(); 
+    }    
+    setTime(0);
+    setTaskDescription('');
+  };
+
 };
 
 export default IndexPage;
