@@ -1,39 +1,39 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import IndexPage from './pages/IndexPage';
 import ProtectedRoute from './components/common/ProtectedRoute';
+// import ToastContainer from './components/common/ToastContainer';
 
 export default function App() {
-  const [currentUser, setCurrentUser] = useState(null);
-  const auth = getAuth();
-
-  useEffect(() => {
-    const logout = onAuthStateChanged(auth, user => {
-      setCurrentUser(user);
-    });
-
-    return logout;
-  }, [auth]);
 
   return (
     <Router>
+      {/* <ToastContainer /> */}
       <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route 
-          path="/index" 
+        <Route
+          path="/login"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute isRequiredAuth={false}>
+              <LoginPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <ProtectedRoute isRequiredAuth={false}>
+              <RegisterPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute isRequiredAuth={true}>
               <IndexPage />
             </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/" 
-          element={currentUser ? <Navigate replace to="/index" /> : <Navigate replace to="/login" />} 
+          }
         />
       </Routes>
     </Router>
