@@ -5,10 +5,12 @@
 1. [Project Summary](#project-summary)
 2. [Features](#features)
 3. [Technologies Used](#technologies-used)
-4. [Installation](#installation)
-5. [Project Structure](#project-structure)
-6. [Known Issues and Limitations](#known-issues-and-limitations)
-7. [Contact Information](#contact-information)
+4. [Known Issues and Limitations](#known-issues-and-limitations)
+
+5. [Installation](#installation)
+6. [Project Structure](#project-structure)
+7. [License](#license)
+8. [Contact Information](#contact-information)
 
 ## Project Summary
 
@@ -86,11 +88,43 @@ npm run dev
 npm run build
 ```
 
+### Project Structure
+
+- `public/`
+  - `vite.svg/`
+- `src/`
+  - `assets/`
+  - `components/`
+    - `common/`
+    - `ui/`
+  - `lib/`
+  - `pages/`
+      - `IndexPage.jsx/`
+      - `LoginPage.jsx/`
+      - `RegisterPage.jsx/`
+  - `App.jsx`
+  - `index.css`
+  - `main.jsx`
+- `.eslintrc.cjs`
+- `.gitignore`
+- `LICENSE`
+- `README.md`
+- `components.json`
+- `firebase-config.js`
+- `index.html`
+- `jsconfig.json`
+- `package-lock.json`
+- `package.json`
+- `postcss.config.js`
+- `prettier.config.js`
+- `tailwind.config.js`
+- `vite.config.js`
+
 ## License
 
 This project is licensed under the MIT license. For more information, see the LICENSE file.
 
-## Contact With
+## Contact Information
 For questions, feedback, or suggestions, feel free to reach out:
 
 - [hello@altankurt.dev](mailto:hello@altankurt.dev)
