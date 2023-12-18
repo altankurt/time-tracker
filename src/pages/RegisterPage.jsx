@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -40,25 +41,28 @@ const Signup = () => {
   const onSubmit = async (values) => {
     try {
       const auth = getAuth();
-      const userCredential = await createUserWithEmailAndPassword(
+      await createUserWithEmailAndPassword(
         auth,
         values.email,
         values.password
       );
       
-      navigate("/login");
-      toast({
-        title: "Success",
-        description: "Account created successfully! Welcome aboard!",
-      });
+      // toast({
+      //   title: "Success",
+      //   description: "Account created successfully! Welcome aboard!",
+      // });
+        
+      navigate("/");
+       
     } catch (error) {
+      console.error(error);
       toast({
         title: "Error",
         description: error.message,
       });
     }
   };
-
+  
   return (
     <main className="main-layout">
       <section className="form-container">
