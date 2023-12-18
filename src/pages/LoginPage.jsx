@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, setPersistence, signInWithEmailAndPassword, browserLocalPersistence } from "firebase/auth";
+
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -34,12 +35,13 @@ const LoginForm = () => {
   const onSubmit = async (values) => {
     try {
       const auth = getAuth();
-      const userCredential = await signInWithEmailAndPassword(
+      await setPersistence(auth, browserLocalPersistence);
+      await signInWithEmailAndPassword(
         auth,
         values.email,
         values.password,
       );
-      navigate("/index");
+      navigate("/");
     } catch (error) {
       toast({
         title: "Error",
