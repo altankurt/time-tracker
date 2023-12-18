@@ -88,6 +88,31 @@ const IndexPage = () => {
   
     return `${day}/${month}/${year}`;
   }
+
+  const handleDelete = async (date) => {
+    const logsCollection = await getDocs(collection(db, "time_log"));
+    logsCollection.forEach(async (doc) => {
+      if (doc.data().date?.seconds === date?.seconds) {
+        deleteDoc(doc.ref);
+      }
+    });
+    setTimeout(() => {
+      fetchLogs();
+    }, 1000);
+  };
+  
+  useEffect(() => {
+    fetchLogs();
+  }, []);
+
+  return (
+    <div className="container mx-auto p-4">
+      <nav className="flex justify-between items-center p-4">
+        <h1 className="text-xl font-bold">TimeTune</h1>
+        <button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 rounded">Logout</button>
+      </nav>
+    </div>
+  );
 };
 
 export default IndexPage;
