@@ -11,6 +11,20 @@ const IndexPage = () => {
   const [taskDescription, setTaskDescription] = useState('');
   const [logs, setLogs] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    let interval = null;
+
+    if (timerOn) {
+      interval = setInterval(() => {
+        setTime(prevTime => prevTime + 10);
+      }, 10);
+    } else {
+      clearInterval(interval);
+    }
+
+    return () => clearInterval(interval);
+  }, [timerOn]);
 };
 
 export default IndexPage;
