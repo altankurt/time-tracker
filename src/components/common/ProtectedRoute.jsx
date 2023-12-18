@@ -2,30 +2,27 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
-function ProtectedRoute({ children }) {
+function ProtectedRoute({ children, isRequiredAuth }) {
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
   const auth = getAuth();
 
   useEffect(() => {
     const logout = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setUser(currentUser);
-      } else {
+     setLoading(true); 
+      if (isRequiredAuth && !currentUser) {
         navigate('/login');
-      }
+      } else if (!isRequiredAuth && currentUser) {
+        navigate('/');
+      } 
     });
+    setLoading(false);
 
     return () => logout();
-  }, [navigate, auth]);
+  }, [isRequiredAuth, auth]); 
 
-  if (!user) {
-    return <div>Looading...</div>;
-  }
 
-  return children;
+  return loading ? children : 'loading...'
 }
 
 export default ProtectedRoute;
-
-
