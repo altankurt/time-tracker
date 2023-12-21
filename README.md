@@ -19,6 +19,7 @@
 The "Time Tracker" project is a web application designed for time management and task tracking. It allows users to track the time spent on various tasks and maintain logs of their activities. The application provides features such as starting, pausing, and stopping a timer, adding a description to the tracked time, and viewing a list of past logged tasks with their respective times and dates. It also includes user authentication for personalized experience.
 
 ## Features
+
 - **User Authentication**: Users can register, log in, and log out to maintain individual tracking records.
 - **Time Tracking**: Start, pause, and stop features for tracking time spent on tasks.
 - **Task Description**: Option to add a description to each time tracking entry.
@@ -30,6 +31,7 @@ The "Time Tracker" project is a web application designed for time management and
 - **Toast Notifications**: Interactive and informative notifications for user actions like errors or confirmations.
 
 ## Technologies Used
+
 - **React.js**: For building the user interface and handling the application's state.
 - **Firebase**: Used for user authentication and data storage with Firestore.
 - **React Router**: For handling navigation within the application.
@@ -43,37 +45,49 @@ The "Time Tracker" project is a web application designed for time management and
 ### Known Issues and Limitations
 
 The following are known issues and planned enhancements for the "Time Tracker" project:
+
 - **Separation of Concerns**
+
   - Plan to refactor code by breaking down the logic and UI in components, and creating separate custom hooks for Login, Register, and time-related behaviors on the page.
 
 - **Atomizing UI Elements**
+
   - Aiming to further atomize UI elements into more granular components for better reusability and maintainability.
 
 - **Utility Functions Management**
+
   - Intend to move functions like `formatTime` into the `utils` folder and call them from there to improve code organization and readability.
 
 - **Asset Management**
+
   - Planning to manage all assets centrally within the `public` folder for consistency and easier maintenance.
 
 - **Toast Structure for Registered Users**
+
   - Toast notifications need to be operational before routing for the registered user to provide better user feedback.
 
 - **Member Registration Warning**
+
   - Implementation of a modal warning for attempting to register with an email that has already been used is pending.
 
 - **Password Reset Functionality**
+
   - The "Forgot Password" feature is currently not functional and requires code implementation for proper operation.
 
 - **Password Strength Validation**
+
   - Future enhancements will include regex for password strength validation, incorporating checks for upper/lower case letters, special characters, and numbers, in addition to the existing length requirement.
 
 - **Editable Logged Information**
+
   - The description field in the activity logs is planned to be made editable in future updates to allow users to update their task descriptions post logging.
 
 - **Responsive Design on Index Page**
+
   - Improvements are planned to align the responsiveness of the Index page with that of the Login and Register pages.
 
 - **Index Page Design Overhaul**
+
   - A comprehensive redesign of the Index page is planned, including the consolidation of styles into global CSS for a cleaner code structure.
 
 - **Central Loading GIF**
@@ -81,30 +95,57 @@ The following are known issues and planned enhancements for the "Time Tracker" p
 
 ## Installation
 
+### Prerequisites
+
+- Node.js
+- npm (Node Package Manager)
+- Firebase account
+
+### Steps
+
 1. **Clone the project**:
+
 ```bash
 git clone https://github.com/altankurt/time-tracker.git
 ```
 
 2. **Install Dependencies**: Navigate to the project directory and install the required dependencies using npm.
+
 ```bash
 cd time-tracker
 npm install
 ```
 
-3. **Firebase Configuration**: Set up a Firebase project and configure it to use Firebase services (Authentication and Firestore). Update the firebase-config.js with your Firebase project configurations.
+3. **Firebase Configuration**:
+
+- Set up a Firebase project.
+- Configure the project to use Firebase services (Authentication and Firestore).
+- Create a .env file in the project root and add your Firebase configuration keys:
+
+```bash
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_firebase_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_firebase_app_id
+
+```
 
 4. **Run the Application**: Start the application in development mode by running:
+
 ```bash
 npm run dev
 ```
 
 5. **Build for Production**: To build the application for production deployment, run:
+
 ```bash
 npm run build
 ```
 
 ### Project Structure
+
 ```bash
 time-tracker/
   ├── public/                           # Static assets and icons.
@@ -146,6 +187,7 @@ time-tracker/
   ├── postcss.config.js                 # PostCSS configuration file.
   ├── prettier.config.js                # Prettier code formatting configuration file.
   ├── tailwind.config.js                # Tailwind CSS configuration file.
+  ├── .env                              # Environment variables for Firebase configuration
   └── vite.config.js                    # Vite configuration file.
 ```
 
@@ -154,6 +196,7 @@ time-tracker/
 This project is licensed under the MIT license. For more information, see the LICENSE file.
 
 ## Contact Information
+
 For questions, feedback, or suggestions, feel free to reach out:
 
 - [hello@altankurt.dev](mailto:hello@altankurt.dev)
