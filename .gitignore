@@ -26,5 +26,6 @@ dist-ssr
 
 .gif
 
-# Firebase
-firebase-config.js
+# Environment  
+.env
+
