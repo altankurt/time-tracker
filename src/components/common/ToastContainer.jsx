@@ -1,5 +1,5 @@
 import React from 'react'
-import { useToast } from '../ui/use-toast'
+import { useToast } from '../../hooks/useToast'
 
 function ToastContainer() {
   const { toasts } = useToast()
