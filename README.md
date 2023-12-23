@@ -38,7 +38,7 @@ The "Time Tracker" project is a web application designed for time management and
 - **Tailwind CSS**: For styling the application with utility-first CSS classes.
 - **Vite**: As a frontend build tool for bundling and development environment.
 - **React Hook Form with Zod**: For form validation and handling.
-- **Radix UI**: To provide accessible UI components like toasts and forms.
+- **Shadcn UI**: To provide accessible UI components.
 - **ESLint and Prettier**: For code linting and formatting to maintain code quality.
 - **Firebase SDK**: Integrated for accessing Firebase services like Authentication and Firestore.
 
